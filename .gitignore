@@ -10,6 +10,7 @@ wheels/
 .venv
 
 # personal files
+data/
 data/*
-!data/list-of-rpis
-!data/list-of-programs
+# !data/list-of-rpis
+# !data/list-of-programs
