@@ -34,7 +34,7 @@ def main():
             if not program:
                 continue
 
-            print(f"Installing {program} on {rpi}")
+            print(f"Copying {program} on {rpi}")
             os.system(f"scp -r -q {data_dir}/{program} {rpi}:/home/pi/wcl/")
 
         print(f"Finished processing {rpi}")
