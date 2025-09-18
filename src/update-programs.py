@@ -34,13 +34,13 @@ def main():
                 continue
 
             # 해당 라즈베리파이에서 서비스 동작 중지
-            os.system(f"ssh {rpi} 'sudo systemctl stop {program}'")
+            os.system(f"ssh {rpi} 'sudo systemctl stop upload-{program}'")
             print(f"Copying {program} on {rpi}")
             os.system(
-                f"rsync -a --exclude='.git' {data_dir}/{program} {rpi}:/home/pi/wcl/"
+                f"rsync -a --exclude='.git' --exclude='.env' {data_dir}/{program} {rpi}:/home/pi/wcl/"
             )
             # 해당 라즈베리파이에서 서비스 재시작
-            os.system(f"ssh {rpi} 'sudo systemctl start {program}'")
+            os.system(f"ssh {rpi} 'sudo systemctl start upload-{program}'")
 
         print(f"Finished processing {rpi}")
 
