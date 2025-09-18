@@ -35,7 +35,9 @@ def main():
                 continue
 
             print(f"Copying {program} on {rpi}")
-            os.system(f"scp -r -q {data_dir}/{program} {rpi}:/home/pi/wcl/")
+            os.system(
+                f"rsync -a --exclude='.git' {data_dir}/{program} {rpi}:/home/pi/wcl/"
+            )
 
         print(f"Finished processing {rpi}")
 
