@@ -14,5 +14,8 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == "enable-programs":
         os.system("uv run src/enable-programs.py")
 
+    if len(sys.argv) > 1 and sys.argv[1] == "update-programs":
+        os.system("uv run src/update-programs.py")
+
 if __name__ == "__main__":
     main()
